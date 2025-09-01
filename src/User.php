@@ -120,6 +120,7 @@ class User
         $sql = "UPDATE users SET password = ? WHERE id = ?";
         try {
             $this->db->execute($sql, [$password_hash, $this->data['id']]);
+            $this->data['password'] = $password_hash;
             return true;
         } catch (PDOException $e) {
             return false;
