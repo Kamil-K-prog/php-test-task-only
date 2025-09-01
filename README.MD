@@ -12,7 +12,7 @@
 1.  **Клонируйте репозиторий:**
     ```bash
     git clone https://github.com/Kamil-K-prog/php-test-task-only
-    cd ВАШ_РЕПОЗИТОРИЙ
+    cd php-test-task-only
     ```
 
 2.  **Настройте конфигурацию:**
