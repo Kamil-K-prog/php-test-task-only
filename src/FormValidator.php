@@ -50,6 +50,7 @@ class FormValidator
             }
         }
 
+        $password = static::normalizeSpaces($password);
         $result['data']['password'] = $password;
         if ($password_confirm !== $password) {
             $result['errors']['password'] = 'Пароли не совпадают!';
@@ -155,6 +156,10 @@ class FormValidator
                 $result['errors']['new_password_confirm'] = 'Подтвердите новый пароль.';
             }
 
+            $currentPassword = static::normalizeSpaces($currentPassword);
+            $newPassword = static::normalizeSpaces($newPassword);
+            $newPasswordConfirm = static::normalizeSpaces($newPasswordConfirm);
+
             $result['data']['currentPassword'] = $currentPassword;
             $result['data']['newPassword'] = $newPassword;
             $result['data']['newPasswordConfirm'] = $newPasswordConfirm;
@@ -174,7 +179,7 @@ class FormValidator
 
     /**
      * Форматирует номер телефона в нужном формате.
-     * Зачем нужно: в БД хранится очищенный номер телефона, а пользователю в вфырищфкв подставляется красиво форматированный
+     * Зачем нужно: в БД хранится очищенный номер телефона, а пользователю в dashboardя подставляется красиво форматированный
      */
     public static function formatPhoneNumber(string $phone): string
     {
